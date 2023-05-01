@@ -7,11 +7,11 @@ def solution(files):
             if file[i].isdigit():
                 number += file[i]
                 number_check = True
-            elif not number_check:
-                head += file[i]
-            else:
+            elif number_check:
                 tail = file[i:]
                 break
+            else:
+                head += file[i]
         answer.append((head, number, tail))
     answer.sort(key=lambda x: (x[0].lower(), int(x[1])))
     answer = [''.join(x) for x in answer]
